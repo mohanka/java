@@ -10,16 +10,16 @@ public class OddRunner implements Runnable {
 
     @Override
     public void run(){
-        while(counterObj.currentCount <10){
-            while(counterObj.currentCount %2 == 0){
+        while(counterObj.getCurrentCount() <10){
+            while(counterObj.getCurrentCount() %2 == 0){
                 try {
                     sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            System.out.println(Thread.currentThread().getName() + " Count : "+ counterObj.currentCount);
-            counterObj.currentCount++;
+            System.out.println(Thread.currentThread().getName() + " Count : "+ counterObj.getCurrentCount());
+            counterObj.incrementCount();
         }
     }
 }

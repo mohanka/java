@@ -2,9 +2,15 @@ package Concurrency.Ep4HappensBefore;
 
 
 public class Counter {
-    public volatile int currentCount;
+    private volatile int currentCount;
     Counter(){
         currentCount = 1;
+    }
+    public int getCurrentCount(){
+        return currentCount;
+    }
+    public void incrementCount(){
+        currentCount++;
     }
 
     public static void main(String[] args) throws InterruptedException {
