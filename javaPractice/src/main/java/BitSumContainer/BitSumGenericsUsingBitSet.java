@@ -26,7 +26,7 @@ public class BitSumGenericsUsingBitSet<T extends Enum<T>> {
         }
     }
 
-    public boolean hasAccessTo(T enumVal) {
+    public boolean hasEnumVal(T enumVal) {
         Integer enumValueBit = enumRegistry.get(enumVal);
         return bitSumValue.get(enumValueBit);
     }
@@ -36,9 +36,9 @@ public class BitSumGenericsUsingBitSet<T extends Enum<T>> {
         bitSumValue.set(enumValueBit);
     }
 
-    public void revokeAccess(T enumVal) {
+    public void removeEnumVal(T enumVal) {
         Integer enumValueBit = enumRegistry.get(enumVal);
-        if(hasAccessTo(enumVal)) {
+        if(hasEnumVal(enumVal)) {
             bitSumValue.clear(enumValueBit);
         }
     }
@@ -46,7 +46,7 @@ public class BitSumGenericsUsingBitSet<T extends Enum<T>> {
     public Set<T> getAllEnumValues() {
         var enumValueSet = new HashSet<T>();
         for(T enumValue : EnumSet.allOf(enumType)) {
-            if(hasAccessTo(enumValue)) {
+            if(hasEnumVal(enumValue)) {
                 enumValueSet.add(enumValue);
             }
         }

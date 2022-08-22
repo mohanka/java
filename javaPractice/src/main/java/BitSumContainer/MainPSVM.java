@@ -58,7 +58,7 @@ public class MainPSVM {
         */
 
         //bellyMarch to be 24/7 open
-        bellyMarchChef.revokeAccess(Access.ENTRANCE);
+        bellyMarchChef.removeEnumVal(Access.ENTRANCE);
         logger.info("BellyMarchChef's new access= "+ bellyMarchChef.getAllEnumValues());
         logger.info("...terminating");
         /* Prints:
