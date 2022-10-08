@@ -1,4 +1,4 @@
-package LLD.models.impl;
+package LLD.snakeLadder.models.impl;
 
 public class Player {
     private String name;

@@ -1,6 +1,6 @@
-package LLD.models.impl;
+package LLD.snakeLadder.models.impl;
 
-import LLD.models.IMovable;
+import LLD.snakeLadder.models.IMovable;
 
 import java.util.ArrayList;
 import java.util.HashSet;

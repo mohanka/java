@@ -1,4 +1,4 @@
-package LLD.models;
+package LLD.snakeLadder.models;
 
 public interface IMovable {
     int moveFrom();

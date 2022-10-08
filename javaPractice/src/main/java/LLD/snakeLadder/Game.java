@@ -3,10 +3,10 @@ package LLD.snakeLadder;
 // not complex and extendable one - small done with time constraint
 //https://workat.tech/machine-coding/practice/snake-and-ladder-problem-zgtac9lxwntg/
 
-import LLD.models.impl.Board;
-import LLD.models.impl.Ladder;
-import LLD.models.impl.Player;
-import LLD.models.impl.Snake;
+import LLD.snakeLadder.models.impl.Board;
+import LLD.snakeLadder.models.impl.Ladder;
+import LLD.snakeLadder.models.impl.Player;
+import LLD.snakeLadder.models.impl.Snake;
 
 import java.io.IOException;
 import java.util.ArrayList;
