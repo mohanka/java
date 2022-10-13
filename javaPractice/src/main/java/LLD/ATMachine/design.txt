@@ -2,11 +2,14 @@
 @AllArgsConstructor
 public class Card {
 	private int cardNum;
-	private int accNumer;
+	// accNumber string as number/int may overflow
+	private String accNumer;
 	private Date expDate;
 	private int cvv;
 	private String cardName;
 	private CardIssuer issuer;
+	// encrypt when sending
+	private String pin;
 }
 
 public class ATM {
@@ -15,6 +18,16 @@ public class ATM {
 	Display display; 
 	CashHouse 
 	Notifier 
+	
+	AtmDetails atmDetails;
+	
+	public class AtmDetails {
+		String address;
+		int pinCode;
+		int atmId;
+		String srcBankName;
+		String branchId;
+	}
 }
 
 public class KeyPad {
@@ -127,4 +140,25 @@ public class ATMService{
 	}
 	
 	
+}
+
+public enum TransactionType {
+	WITHDRAWL, DEPOSIT, TRANSFER;
+}
+
+
+public abstract class Transaction {
+	String transId;
+	Date transDate;
+	String sourceAcc;
+	float amount;
+}
+
+public class WithdrawTransaction extends Transaction {
+	AtmDetails withdrawlAtmDetails;
+}
+
+public class WithdrawTransaction extends Transaction {
+	AtmDetails withdrawlAtmDetails;
+
 }

@@ -51,6 +51,9 @@ public class Board {
         return isUnderBound(target) && moveToVal.get(curr).contains(target);
     }
 
+    public static void main(String[] args) {
+
+    }
 
 
 }
