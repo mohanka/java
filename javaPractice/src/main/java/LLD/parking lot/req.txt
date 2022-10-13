@@ -1,0 +1,69 @@
+Parking lot design: 
+
+
+- multiple floors
+- multiple entries : each with a token generator
+- multiple exits : each evaluates the time stayed and calculates price for the stayed
+- bike, car, bus parking
+- slot identification : provide slot number on token
+- one person multiple tokens
+
+Good to have: 
+- max stay time
+- provide preferred floor
+
+
+OOD:
+Entities:
+
+Building:
+isOperational
+List<FloorLayout>
+
+FloorLayout: m x n
+List<List<Slots>>
+List<Gates>
+Gate - entry/exit
+
+abstract class Gate {
+	PaymentService
+	PricingService
+	public abstract Transaction move(Token tk);
+	
+}
+
+class Transaction	{
+	Token tokenId;
+	
+}
+
+Agents: System owner, Guards, VehicleOwner
+
+Vehicle: bike, car, bus
+
+Token
+
+TokenService
+
+
+
+
+
+
+=============> Think Software <===========
+- very good explanantion
+- use of design patterns
+- design on basis of requirement
+- minimal structures to complete requirement
+- SOLID design patterns
+- complexity of main functionality discussion and DS selection
+
+Parking System
+- no need of vehicle class? unrelated to parking lot. Ticket will have vehicle number
+- Strategy pattern for SlotService -> minDistanceSlotSerice, maxThroughPutService
+- don't introdce enums to classes or objects which could change. Eg: Slots -> SpeciallyAbledSlot, PremiumSlot, SmallSlot, MedSlot, XLSlot
+- Observer Pattern for : system monitoring and logging 
+- Builder pattern for token generation : each time a slot identified, car number provided, reqd floor calc, set the property and generate the token
+
+IMP:
+- Adding gates introduces concurrency issues
