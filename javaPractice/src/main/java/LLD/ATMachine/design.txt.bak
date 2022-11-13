@@ -1,0 +1,130 @@
+@Getter
+@AllArgsConstructor
+public class Card {
+	private int cardNum;
+	private int accNumer;
+	private Date expDate;
+	private int cvv;
+	private String cardName;
+	private CardIssuer issuer;
+}
+
+public class ATM {
+	bool isFunctional;
+	Keypad keyPad;
+	Display display; 
+	CashHouse 
+	Notifier 
+}
+
+public class KeyPad {
+	public int getInstructon();
+}
+
+enum MoneyDenomination{ 
+	HUNDRED(100), FIVE_HUNDRED(500), TWO_THOUSAND(2000);
+	int val;
+}
+
+class CashHouse {
+	Map<MoneyDenomination, int> moneyCountMap;
+	Dispenser moneyDispenser;
+	
+	// getter-setter
+	public addCash(MoneyDenomination, count)
+	public boolean diburseCash(int amount) {
+		try {
+		// algo find which denom. and how many notes
+		// update moneyCountMap
+		} catch (OutOfMoneyException ex) {
+			return false;
+		}
+		return true;
+	}
+}
+
+enum CardIssuer{
+	VISA, RUPAY, MASTERCARD;
+}
+
+enum TransType{
+	DEBIT, CREDIT;
+}
+
+class Transaction {
+	boolean isComplete;
+	float amount;
+	Date transType;
+	String transInfo
+}
+
+public interface IBankingSercice {
+	public boolean isValidUser(CardDetails cd, int pin);
+	public List<Transaction> getTransHistory()
+	public boolean performTrans(CardDetails cd, Transaction trans);
+}
+
+public class BankingServiceVISA implements IBankingSercice {
+}
+
+public class BankingServiceMASTERCARD implements IBankingSercice {
+}
+
+public class BankingServiceRUPAY implements IBankingSercice {
+}
+
+public class ServiceFactory() {
+
+	Singleton classes -> so maybe store as map<CardIssuer, IBankingSercice> cardServiceMap;
+	
+	public void ServiceFactory () {
+		cardServiceMap.put(CardIssuer.VISA, BankingServiceVISA);
+		cardServiceMap.put(CardIssuer.RUPAY, BankingServiceRUPAY);
+		cardServiceMap.put(CardIssuer.MASTERCARD, BankingServiceMASTERCARD);
+	}
+	
+	public static IBankingSercice getBankingService(CardIssuer cIssuer) throws UnIdentifiedCardException {
+		if(!cardServiceMap.contains(cIssuer)) {
+			throw new UnIdentifiedCardException("not identified at our ATM");
+		}
+		return cardServiceMap.get(cIssuer)
+	}
+}
+
+public class ATMService{
+	ATM atm;
+	Card card;
+	IBankingSercice selectedBankingService;
+	map<CardIssuer, IBankingSercice> cardIssuerToBankingService;	// not needed here - will be used from factorys
+	
+	public ATMService() {
+		setupATM();
+	}
+	
+	void setupATM() {
+		ATMFactory.getATMByModel()
+	}
+	
+	void setupService(CardDetails cd) {
+	
+		selectedBankingService = ServiceFactory.getBankingService(cIssuer)
+		
+	}
+	
+	acceptcard() {
+		extractCardDetails();
+		setupService();
+		try{
+			ServiceFactory.getBankingService(card.getIssuer);
+		} catch(ex) {
+			atm.displayMessage(ex.getMessage);
+			// log exception
+		}
+		
+		do {
+			
+		} while(continueTransaction());
+	}
+	
+	
+}
